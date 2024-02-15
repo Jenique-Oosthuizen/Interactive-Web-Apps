@@ -36,5 +36,5 @@ const sarah = {
 		postalCode: sarahPostal,
 	}
 }
-console.log(leo, leo[address][postalCode])
-console.log(sarah, sarah[address][postalCode])
+console.log(leo, leo['address']['postalCode'])
+console.log(sarah, sarah['address']['postalCode'])
