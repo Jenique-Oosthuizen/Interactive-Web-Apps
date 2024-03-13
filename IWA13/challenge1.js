@@ -7,18 +7,19 @@ let calculated = '1'
 //----------------------------------------------------------------------------//
 const logCalc = () => { 
     const isString = typeof calculated === 'string' 
-    const calculatedAsNumber = isString ? calculated : parseFloat(calculated)
-    calculated = calculatedAsNumber + 1 
+    const calculatedAsNumber = isString ? parseInt(calculated) : calculated
+    calculated = calculatedAsNumber + 1
 }
-//
+//Test if calculated is > then 2 or 3
 //----------------------------------------------------------------------------//
 const calcUser = () => {
   logCalc()
   if (calculated > 2) user = 'John'
   if (calculated > 2) state = 'requesting'
   if (calculated > 3) state = 'idle'
+  
 }
-//
+//Check how many times user was used
 //----------------------------------------------------------------------------//
 const checkUser = () => {
 	if (user && state === 'requesting') {

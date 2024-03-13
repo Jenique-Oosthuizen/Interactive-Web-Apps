@@ -87,10 +87,3 @@ book3.checkout.style.color = 'black'
 book3.checkin.style.color = 'grey'
 
 //---------------------...ooo000 END OF FILE 000ooo...------------------------//
-
-/*
-book1.status.style.color = STATUS_MAP.overdue.color;
-book1.reserve.disabled = !STATUS_MAP.overdue.canReserve;
-book1.checkout.disabled = !STATUS_MAP.overdue.canCheckout;
-book1.checkin.disabled = !STATUS_MAP.overdue.canCheckIn;
-*/
