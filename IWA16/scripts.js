@@ -1,5 +1,5 @@
 // scripts.js
-
+//----------------------------------------------------------------------------//
 const MONTHS = [
     'Jan',
     'Feb',
@@ -66,7 +66,7 @@ const MONTHS = [
   };
   
   // Only edit below this comment
-  
+  //----------------------------------------------------------------------------//
   const createHtml = (athlete) => {
     const {firstName, surname, id, races} = athlete
     const [{ date: dateAsString, time: timeAsArray }] = [...races.reverse()]
@@ -79,7 +79,7 @@ const MONTHS = [
   
     const list = document.createElement('dl');
   
-    const date = new Date()
+    const date = new Date(dateAsString);
     const day = date.getDate();
     const month = MONTHS[date.getMonth()];
     const year = date.getFullYear();
@@ -88,26 +88,34 @@ const MONTHS = [
     const total = first + second + third + fourth;
   
     const hours = Math.floor(total / 60);
-    const minutes = (total / hours) % 60;
-  
+    const minutes = total % 60;
+
     list.innerHTML = /* html */`
       <dt>Athlete</dt>
-      <dd>${firstName, surname}</dd>
+      <dd>${firstName} ${surname}</dd>
   
       <dt>Total Races</dt>
-      <dd>${races}</dd> //
+      <dd>${races.length}</dd>
   
       <dt>Event Date (Latest)</dt>
-      <dd>${day, month, year}</dd>
+      <dd>${day} ${month} ${year}</dd>
   
       <dt>Total Time (Latest)</dt> 
-      <dd>${hours.padStart(2, 0), minutes}</dd> //toString
+      <dd>${hours.toString().padStart(2, 0)}:${minutes}</dd>
     `;
   
     fragment.appendChild(list);
     return fragment
   }
   
-  const { NM372, SV782 } = data;
-  document.querySelector('[data-athlete="NM372"]').appendChild(createHtml('NM372'));
-  document.querySelector('[data-athlete="SV782"]').appendChild(createHtml('SV782'));
+  const {
+    response: {
+      data: {
+        NM372,
+        SV782,
+      }
+    },
+  } = data;
+document.querySelector(['[data-athlete="NM372"]']).appendChild(createHtml(NM372));
+document.querySelector(['[data-athlete="SV782"]']).appendChild(createHtml(SV782));
+//---------------------...ooo000 END OF FILE 000ooo...------------------------//
